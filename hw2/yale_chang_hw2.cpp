@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include<vector>
+#include<stdlib.h>
 using namespace std;
 
 void insertionSort(vector<int> &A );
@@ -22,7 +23,12 @@ int main()
     cout<<endl;
 
     // Test populateVector
-
+    vector<int> vector_1(6,0);
+    double m = 10.0;
+    populateVector(vector_1,m);
+    for(vector<int>::iterator i=vector_1.begin(); i!= vector_1.end(); i++)
+        cout<<*i<<",";
+    cout<<endl;
 }
 
 // Implementation of Insertion Sort
@@ -47,7 +53,11 @@ void populateVector(vector<int> &A, double m)
 {
     // Obtain the size of the input vector
     vector<int>::size_type size_vec = A.size();
+    
+    //default_random_engine generator;
+    //uniform_int_distribution<int> distribution(-m/2,m/2);
 
     // Randomly and uniformly select integer numbers from [-m,m]
-    for(vector<int>::iterator )
+    for(vector<int>::iterator i=A.begin(); i!=A.end(); i++)
+        *i = int(rand()%int(m+1)-m/2);
 }
