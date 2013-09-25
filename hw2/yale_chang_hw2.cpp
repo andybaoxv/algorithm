@@ -1,5 +1,7 @@
 // Author: Yale CHANG
-// Platform: g++(2011) on Ubuntu 12.04 LTS
+// Complier: g++ (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+// Platform: Ubuntu Release 12.04 (precise) 32-bit
+//           Kernel Linux 3.2.0-53-generic-pae
 
 #include<iostream>
 #include<vector>
@@ -18,17 +20,13 @@ int main()
     
     // Test insertionSort
     insertionSort(myvector);
-    for(vector<int>::iterator i=myvector.begin();i!=myvector.end();i++)
-        cout<<*i<<",";
-    cout<<endl;
+    printVector(myvector);
 
     // Test populateVector
     vector<int> vector_1(6,0);
-    double m = 10.0;
+    double m = 100;
     populateVector(vector_1,m);
-    for(vector<int>::iterator i=vector_1.begin(); i!= vector_1.end(); i++)
-        cout<<*i<<",";
-    cout<<endl;
+    printVector(vector_1);
 }
 
 // Implementation of Insertion Sort
@@ -60,4 +58,12 @@ void populateVector(vector<int> &A, double m)
     // Randomly and uniformly select integer numbers from [-m,m]
     for(vector<int>::iterator i=A.begin(); i!=A.end(); i++)
         *i = int(rand()%int(m+1)-m/2);
+}
+
+// Implementation of printVector
+void printVector(vector<int> A)
+{
+    for(vector<int>::iterator i=A.begin(); i!=A.end(); i++)
+        cout<<*i<<",";
+    cout<<endl;
 }
