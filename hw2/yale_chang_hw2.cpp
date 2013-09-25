@@ -6,18 +6,23 @@
 using namespace std;
 
 void insertionSort(vector<int> &A );
-void populateVecotr(vector<int> &A, double m);
+void populateVector(vector<int> &A, double m);
 void printVector(vector<int> A);
 
 int main()
 {
-    cout<<"Hello World!"<<endl;
+    // Initialize test vector 
     int test_vector[] = {3,7,2,9,5,4};
     vector<int> myvector(test_vector,test_vector+sizeof(test_vector)/sizeof(int));
+    
+    // Test insertionSort
     insertionSort(myvector);
     for(vector<int>::iterator i=myvector.begin();i!=myvector.end();i++)
         cout<<*i<<",";
     cout<<endl;
+
+    // Test populateVector
+
 }
 
 // Implementation of Insertion Sort
@@ -37,4 +42,12 @@ void insertionSort(vector<int> &A)
     }
 }
 
+// Implementation of populateVector
+void populateVector(vector<int> &A, double m)
+{
+    // Obtain the size of the input vector
+    vector<int>::size_type size_vec = A.size();
 
+    // Randomly and uniformly select integer numbers from [-m,m]
+    for(vector<int>::iterator )
+}
