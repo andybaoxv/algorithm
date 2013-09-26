@@ -8,6 +8,7 @@
 #include<stdlib.h>
 using namespace std;
 
+// Declaration of functions to be implemented
 void insertionSort(vector<int> &A );
 void populateVector(vector<int> &A, double m);
 void printVector(vector<int> A);
@@ -18,15 +19,31 @@ int main()
     int test_vector[] = {3,7,2,9,5,4};
     vector<int> myvector(test_vector,test_vector+sizeof(test_vector)/sizeof(int));
     
+    // Print out the original vector for comparision
+    cout<<"========================================="<<endl;
+    cout<<"Begin test of insertionSort:"<<endl;
+    cout<<"Original Vector before sorting:";
+    printVector(myvector);
+
     // Test insertionSort
     insertionSort(myvector);
+    cout<<"Original Vector after sorting:"; 
     printVector(myvector);
+    cout<<"End test of insertionSort."<<endl;
+    cout<<endl;
 
     // Test populateVector
     vector<int> vector_1(6,0);
-    double m = 100;
-    populateVector(vector_1,m);
+    double m = 10;
+    cout<<"Begin test of populateVector:"<<endl;
+    cout<<"m = "<<m<<endl;
+    cout<<"Original Vector before populating:";
     printVector(vector_1);
+    populateVector(vector_1,m);
+    cout<<"Original Vector after populating:";
+    printVector(vector_1);
+    cout<<"End test of populateVector."<<endl;
+    cout<<"========================================="<<endl;
 }
 
 // Implementation of Insertion Sort
@@ -52,6 +69,8 @@ void populateVector(vector<int> &A, double m)
     // Obtain the size of the input vector
     vector<int>::size_type size_vec = A.size();
     
+    // Note that in g++ 2011 version, the following line can be used directly
+    // to generate random number 
     //default_random_engine generator;
     //uniform_int_distribution<int> distribution(-m/2,m/2);
 
