@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+
+% Document information
+\title{\textbf{Solution of Homework 2}}
+\author{Yale Chang}
+\date{09/26/2013}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 1}
+The code for Problem 1 is contained in the source file named ``yale\_chang\_hw2\_p1.cpp''.\\
+\\
+
+\section{Problem 2}
+1. The algorithm compute the sum of the squares of 1 to $n$, i.e. $\sum_{i=1}^{n}i^2$.\\
+\\
+2. The basic operations are multiplication and summation.\\
+\\
+3. Since the loop is executed for $n$ times and there's only one summation and multiplication in every loop, the summation and multiplication are both executed for $n$ times.\\
+\\
+4. $O(n)$.\\
+\\
+5. The C++ code is contained in the source file named ``yale\_chang\_hw2\_p2.cpp''. The basic idea is to use the following equation:
+\begin{equation*}
+	\sum_{i=1}^{n}i^2 = \frac{n(n+1)(2n+1)}{6}
+\end{equation*}
+In this algorithm, the summation is executed for 2 times and the multiplication is executed for 3 times and the division is executed for 1 time. So the time complexity for this algorithm is $O(1)$.
+
+\end{document}
