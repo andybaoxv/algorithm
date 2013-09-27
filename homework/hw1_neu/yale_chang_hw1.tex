@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+% Document Info 
+\title{\textbf{Solution of Homework 1}}
+\author{Yale Chang}
+\date{09/15/2013}
+
+% Use mathematical packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\maketitle
+
+\section{Mathematical Induction and Summations}
+Solution:\\
+(a) First consider the base case of induction:let $n=1$,~the LHS $\sum_{i=1}^ni=1$,~the RHS $\frac{n(n+1)}{2}=1$, So the equality holds.
+Then we assume the equality holds when $n=k$,~i.e.
+\begin{equation*}
+\sum_{i=1}^k=\frac{k(k+1)}{2}
+\end{equation*}
+then when $n=k+1$, we have
+\begin{displaymath}
+\begin{array}{lcl}
+\sum_{i=1}^{k+1}i &=& (\sum_{i=1}^{k}i)+(k+1)\\
+				  &=& \frac{k(k+1)}{2}\\
+				  &=& \frac{(k+1)(k+2)}{2}
+\end{array}
+\end{displaymath}
+
+So the equality holds when $n=k+1$.~Therefore, the equality holds for $\forall n\geq 1$.\\
+\\
+(b) The proof for this theorem is wrong because in the inductive step, among the $n+1$ babies we consider, $n$ babies should have the same eyes color. The new baby should be chosen from the set consisting of all the remaining babies instead of a finite set $\mathbf{R}$ which only contains $n$ babies. 
+
+\section{Basic Set Theory}
+Solution:\\
+(a) Definition of $A\cup B$:The set of all distinct elements in set A and set B. Using mathematical formula, it could be expressed as follows: $A\cup B=\{x|x\in A~or~x\in B\}$.\\
+Definiton of $A\cap B$: The set of elements that belong to both A and B. Using mathematical formula, it could be expressed as follows: $A\cap B=\{x|x\in A~and~x\in B\}$.\\
+\\
+(b) We can consider the way of constructing a subset from the finite set S: For every element in set S, it can be chosen or not. So there're 2 possible cases for every element. By the product rule, there should be $2^n$ distinct cases in total.\\
+\\
+(c) We need to build 1-1 mapping between odd numbers and natural numbers. Let $2n+1$ be an odd number($n$ is a natural number). Thus the map function $f(n)=2n+1$ map every natural number to a corresponding odd number. We need to prove this is a 1-1 mapping.\\
+Injective: $\forall n \in \mathbb{N},f~\text{will map}~n~\text{to an odd number}~2n+1 $.\\
+Surjective: $\forall k \in\{k|k~\text{is an odd number}\},f^{-1}(k)=(k-1)/2~ \text{can map}~k~\text{to a natural number}$, 
+
+
+\section{Asymptotic Notations}
+Solution\\
+(a) $O(f(n))$ represents the asymptotically upper bound of the time complexity of an algorithm. Mathematically it could be written as:\\
+$O(f(n))=\{g(n):\text{there exist positive constants}~c~\text{and}~n_0~\text{such that}~0\leq g(n)\leq c\cdot f(n),\forall n\geq n_0\}$.\\
+\\
+(b) Questions\qquad Answers\\
+$n+3\in \Omega(n)\qquad True$\\
+$n+3\in O(n^2)\qquad True$\\
+$n+3 \in \Theta(n^2)\qquad False$\\
+$2^{n+1}\in O(n+1)\qquad False$\\
+$2^{n+1}\in \Theta(2^n)\qquad True$
+
+\section{Basic Graph Theory}
+(a) Tree is an undirected graph in which any two vertices are connected by exactly one simple path. Mathematically it could be defined as following:
+The couple $T=(N,B)$ where $N$ is a set of nodes and $B\subseteq N\times N$ with constrains that any two nodes are connect by exactly one simple path.\\
+\\
+(b) Given a known tree, the maximum possible length of a path in the tree should be the number of hierarchies. The extreme case is there're only one node in each hierarchy.
+
+\section{Basic Data Structures}
+(a) An array is a data structure that stores a collection of elements and every element can be accessed by an index tuple.\\
+A linked list is a data structure in which the objects are arranged in a linear order. Unlike an array, however, in which the linear order is determined by the array indices. The order in a linked list is determined by a pointer in each object.\\
+\\
+(b) $a_n.next = b_1,\qquad b_1.prev = a_n$\\
+
+\section{Sorting and Searching}
+(a) The pseudocode is as following:\\
+sort\_ascend(array,n)\\
+for i = 1 to n-1\\
+\indent for j = i+1 to n\\
+\indent\indent if $array[i] > array[j]$\\
+\indent\indent\indent swap(array[i],array[j])\\
+\\
+(b) The pseudocode is as following:\\
+search\_minimum(array,n)\\
+tempmin = array[1]\\
+for i = 2 to n\\
+\indent if $array[i]<tempmin$\\
+\indent\indent tempmin = array[i]\\
+The complexity of this algorithm is $O(n)$. If the array is already in order(eg ascending order), we can simply take the first element as the minimum. Thus the time complexity reduces to $O(1)$.
+
+\section{Basic C commands and Their Computational Cost}
+(a) The result is:\\
+\begin{equation*}
+\sum_{i=1}^{n-1}(i^2+i)=\frac{n(n-1)(n+1)}{3}
+\end{equation*}
+\\
+(b) The worst-case running time of function $pesky$ is $O(n^3)$.
+
+\section{Functions and Parameter Passing in C}
+(a) Definition: A function prototype in C is a declaration of a function that omits the function body but does specify the function's return type, name, arity and argument types.\\
+The reason why it is needed:
+Having the prototype available before the first use of the function allows the compiler to check that the correct number and type of arguments are used in the function call and that the returned value, if any, is being used reasonably.\\
+\\
+(b) There're two ways of parameter passing in C functions\\
+1, By-value: The value of a variable is sent to function. The actual parameter cannot be changed by function.\\
+2, By-Reference: An address gets sent to function. The function can change the values at that address. Sending by reference requires the use of the pointer.\\
+
+\section{Scope of identifiers in C}
+(a) What is the scope of an identifier in C?\\
+The range of program statements within which the identifier is recognized as a valid name.\\
+(b) The scope of the listed variables are:\\
+1, The variables x in main has main function scope.\\
+2, The variable y in cube has cube function scope.\\
+3, The function cube has global scope.\\
+4, The function cube has global scope.\\
+5, The function prototype for cube has global scope.\\
+6, The identifier y in the function prototype for cube has function prototype scope.\\
+
+\section{Logical Expression in C}
+(a) Since $||$ is a short circuit operator, the left Boolean condition is evaluated first. If the first condition evaluates to be true, the second condition will not be evaluated.\\
+(b) When writing C code, we should take advantage of short circuit operator to enhance performance.\\
+(c) False
+
+
+
+\end{document}
