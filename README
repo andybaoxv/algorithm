@@ -1,1 +1,20 @@
-This repository store code on algorithms implementation
+1, algorithms: implementation of typical algorithms, eg. sorting, searching,
+traversing,etc.
+
+2, data: preprocessing step for the dataset.
+
+3, examples: use iPython notebook to show the usage of the scripts or
+algorithms.
+
+4, gui: design GUI for the code to make it more user friendly
+
+5, homework: solution for homework of the algorithm course
+
+6, sandobox: there're sub-folders with conbtributors' names. You can put your
+scratches under this directory.
+
+7, scripts: main files, in which algorithm can be called.
+
+8, utils: store some commonly used function utilities.
+
+9, visualization: design functions that can help visualize your results.  
