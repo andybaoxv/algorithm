@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+
+% Document Information
+\title{\textbf{Solution of Homework 3}}
+\author{Yale Chang}
+\date{10/06/2013}
+
+% Use packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 1}
+1). For each subsequence with length  $k$,  the time complexity is $\Theta(k^2)$ using INSERTIONSORT. Since there're altogether $n/k$ subsequences, the total time complexity is $\Theta(k^2)\cdot (n/k) = \Theta(nk)$.\\
+\\
+2) Consider the steps of merging two subsequences in MERGESORT. Since the two subsequences are already in order, we need to draw one element from one of the subsequences for each comparison. The number of comparisons should be equal to the number of elements in the sequence, ie, $n$. The number of repetion for this step is $\Theta(\log(n/k))$. So the time complexity for merging the subsequences is $\Theta(\log(n/k))\cdot n = \Theta(n\log(n/k))$.\\
+\\
+3) Using INSERTIONSORT for $n/k$ subsequence each with size $k$, the time complexity should be $T_{H}(n) = \frac{k(k-1)}{2}\cdot \frac{n}{k}+n\cdot\log(n/k)$. Using MERGESORT for a sequence with size $n$, the time complexity is $T_{M}(n) = n\cdot\log(n)$. Let $T_{H}(n)<T_{M}(n)$ and solve for $k$, we can get $(k-1)/2<\log(k)$. If $k\leq 6$, the inequality holds, meaning combining INSERTIONSORT and MERGESORT will be better than MERGESORT.\\
+\\
+4) First we need to make sure $2\leq k \leq 6$. To maximize the margin of performance, we can choose $k$ in this range that maximize $\frac{\log(k)}{(k-1)/2}$. When $k=2$, this ratio is largest.\\
+\\
+\section{Problem 2}
+(a). Consider the $i$-th door, it will be toggled in $j$-th pass, where $j$ should be the divisor of $i$. The divisors of an integer always exist in pairs. For example, the integer 56 has divisors (1,56),(2,28),(4,14),(7,8).If the pairwise divisors are all distinct, then the $i$-th door will be toggled even number times and in the end keep closed. So perfect square doors will be open, ie, $1^2, 2^2,\cdots, k^2$. where $k^2<n$. So $k=\lfloor\sqrt{n})\rfloor$.\\
+\\
+(b). Since only doors with perfect square numbers are open, the number should be $\lfloor\sqrt{n}\rfloor$.  
+
+\section{Problem 3}
+(a). The C++ code is contained in .cpp file "yale\_chang\_hw3.cpp".\\
+\\
+(b). $T(n) = 2\cdot T(n/2)+1$.\\
+\\
+(c). We can use induction to prove the correctness of this recurssive algorithm.\\
+Base case: Verify that the algorithm produces the correct answer for trivial instances. In our case, when the array only contain one element, the maximum element should be itself. So the base case holds.\\
+Inductive step: Verify that the algorithm produces the correct anser under the assumption that the recursion calls produce the correct answer for their respective instances. In our case, given two subsequence with their respective maximum $m_l,m_r$ already known, $\max(m_l,m_r)$ will produce the maximum of the sequence consisting of these two subsequences.\\
+\\
+(d). Apply master theorem to the recurrence relation presented in (b), we can get the time complexity is $O(n)$. As a computation problem, search for the maximal value should at least traverse the whole array, the lower bound is $O(n)$. So this algorithm is optimal.
+
+\end{document}
